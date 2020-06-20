@@ -1,0 +1,26 @@
+class Solution {
+    private:
+    vector<int> weights;
+    int total =0;
+public:
+    Solution(vector<int>& w) {
+        for(auto x:w)
+        {
+         total = total + x;
+            weights.push_back(total);
+        }
+        srand(time(nullptr));
+    }
+    
+    int pickIndex() {
+        int num  = rand() % total;
+        auto it = upper_bound(weights.begin(),weights.end(),num);
+        return it-weights.begin();
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(w);
+ * int param_1 = obj->pickIndex();
+ */
