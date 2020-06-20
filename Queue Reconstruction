@@ -1,0 +1,21 @@
+   class Solution {
+public:
+    vector<vector<int>> reconstructQueue(vector<vector<int>>& people) 
+    {
+        sort(people.begin(), people.end(), [](vector<int>& vec1, vector<int>& vec2)
+             {
+            if(vec1[0] != vec2[0]){
+                return vec1[0] > vec2[0];
+            } else {
+                return vec1[1] < vec2[1];
+            }
+        });
+        
+        vector<vector<int>> res;
+        for(auto ele : people){
+            res.emplace(res.begin() + ele[1], ele);
+        }
+        
+        return res;
+    }
+};
