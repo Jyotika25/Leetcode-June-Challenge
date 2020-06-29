@@ -1,0 +1,51 @@
+class Solution {
+public:
+    void sortColors(vector<int>& arr) {
+    /*  int count0=0,count1=0,count2=0;
+        int n = nums.size();
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]==0)
+                count0++;
+            else if(nums[i]==1)
+                count1++;
+            else
+                count2++;
+        }
+        nums.clear();
+        
+        for(int i=0;i<count0;i++)
+            nums.push_back(0);
+        for(int i=0;i<count1;i++)
+            nums.push_back(1);
+        for(int i=0;i<count2;i++)
+            nums.push_back(2);
+            
+        return;*/
+        
+        
+        int n=arr.size();
+    int j=n-1;
+	int start=0;
+	int end=n-1;
+	while(start<=end){
+		if(arr[end]==2){
+			int t=arr[end];
+			arr[end]=arr[j];
+			arr[j]=t;
+			end--;
+			j--;
+		}
+		else if(arr[end]==0){
+			int t=arr[end];
+			arr[end]=arr[start];
+			arr[start]=t;
+			start++;
+		}
+		else{
+			end--;
+		}
+	}
+       
+    }
+};
